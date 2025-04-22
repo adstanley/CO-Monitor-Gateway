@@ -6,3 +6,6 @@
 
 # Ignore local configuration files
 config.py
+
+# Ignore the virtual environment directory
+.__pycache__/
