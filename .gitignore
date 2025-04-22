@@ -1,0 +1,8 @@
+# Ignore the deprecated directory
+.deprecated/
+
+# Ignore all files within the deprecated directory
+.deprecated/**
+
+# Ignore local configuration files
+config.py
