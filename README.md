@@ -51,9 +51,20 @@ The receiver will:
    - Main thread for receiving and processing XBee messages
    - Background thread for averaging and uploading data to ThingSpeak
 
+### Console Output
+
+Here is an example of the live console output during operation:
+
+![Console Output](images/console-output.png)
+
 ## Data Format
 
 The transmitter nodes should send data in the following format:
+
+## Data Format
+
+The transmitter nodes should send data in the following format:
+
 ```
 DATA:TEMP:26,HUM:28,PPM:1421
 ```
