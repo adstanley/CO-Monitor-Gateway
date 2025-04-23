@@ -1,23 +1,40 @@
-XBeeAPIReceiver - 2025-04-22 11:17:06,149 - INFO - XBee API mode receiver initialized
-digi.xbee.devices - 2025-04-22 11:17:06,178 - INFO - XBeeSerialPort 'COM4' port opened
-digi.xbee.sender - 2025-04-22 11:17:06,178 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 01 41 50 64
-digi.xbee.reader - 2025-04-22 11:17:06,214 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 06 88 01 41 50 00 01 E4
-digi.xbee.sender - 2025-04-22 11:17:06,215 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 02 48 56 56
-digi.xbee.reader - 2025-04-22 11:17:06,261 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 07 88 02 48 56 00 41 55 41
-digi.xbee.sender - 2025-04-22 11:17:06,262 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 03 56 52 4B
-digi.xbee.reader - 2025-04-22 11:17:06,293 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 07 88 03 56 52 00 10 13 A9
-digi.xbee.sender - 2025-04-22 11:17:06,294 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 04 53 48 57
-digi.xbee.reader - 2025-04-22 11:17:06,325 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 09 88 04 53 48 00 00 13 A2 00 23
-digi.xbee.sender - 2025-04-22 11:17:06,326 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 05 53 4C 52
-digi.xbee.reader - 2025-04-22 11:17:06,357 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 09 88 05 53 4C 00 42 01 09 17 70
-digi.xbee.sender - 2025-04-22 11:17:06,358 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 06 4E 49 59
-digi.xbee.reader - 2025-04-22 11:17:06,389 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 0E 88 06 4E 49 00 58 42 45 45 5F 53 49 4E 4B 22
-digi.xbee.sender - 2025-04-22 11:17:06,390 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 07 4D 59 49
-digi.xbee.reader - 2025-04-22 11:17:06,421 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 07 88 07 4D 59 00 00 00 CA
-digi.xbee.sender - 2025-04-22 11:17:06,422 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 08 43 45 66
-digi.xbee.reader - 2025-04-22 11:17:06,453 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 06 88 08 43 45 00 01 E6
-digi.xbee.sender - 2025-04-22 11:17:06,454 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 08 09 41 50 5D
-digi.xbee.reader - 2025-04-22 11:17:06,485 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 06 88 09 41 50 00 01 DC
-digi.xbee.sender - 2025-04-22 11:17:06,486 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 08 0A 41 4F 5D
-digi.xbee.reader - 2025-04-22 11:17:06,517 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 06 88 0A 41 4F 00 00 DD
-digi.xbee.devices - 2025-04-22 11:17:30,372 - INFO - XBeeSerialPort 'COM4' closed
+XBeeAPIReceiver - 2025-04-23 11:43:49,362 - INFO - XBee API mode receiver initialized
+digi.xbee.devices - 2025-04-23 11:43:49,389 - INFO - XBeeSerialPort 'COM4' port opened
+digi.xbee.sender - 2025-04-23 11:43:49,389 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 01 41 50 64
+digi.xbee.reader - 2025-04-23 11:43:49,410 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 06 88 01 41 50 00 01 E4
+digi.xbee.sender - 2025-04-23 11:43:49,412 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 02 48 56 56
+digi.xbee.reader - 2025-04-23 11:43:49,458 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 07 88 02 48 56 00 41 55 41
+digi.xbee.sender - 2025-04-23 11:43:49,459 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 03 56 52 4B
+digi.xbee.reader - 2025-04-23 11:43:49,490 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 07 88 03 56 52 00 10 13 A9
+digi.xbee.sender - 2025-04-23 11:43:49,491 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 04 53 48 57
+digi.xbee.reader - 2025-04-23 11:43:49,522 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 09 88 04 53 48 00 00 13 A2 00 23
+digi.xbee.sender - 2025-04-23 11:43:49,523 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 05 53 4C 52
+digi.xbee.reader - 2025-04-23 11:43:49,554 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 09 88 05 53 4C 00 42 01 09 17 70
+digi.xbee.sender - 2025-04-23 11:43:49,555 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 06 4E 49 59
+digi.xbee.reader - 2025-04-23 11:43:49,586 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 0E 88 06 4E 49 00 58 42 45 45 5F 53 49 4E 4B 22
+digi.xbee.sender - 2025-04-23 11:43:49,587 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 07 4D 59 49
+digi.xbee.reader - 2025-04-23 11:43:49,618 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 07 88 07 4D 59 00 00 00 CA
+digi.xbee.sender - 2025-04-23 11:43:49,618 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 09 08 43 45 66
+digi.xbee.reader - 2025-04-23 11:43:49,650 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 06 88 08 43 45 00 01 E6
+digi.xbee.sender - 2025-04-23 11:43:49,651 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 08 09 41 50 5D
+digi.xbee.reader - 2025-04-23 11:43:49,682 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 06 88 09 41 50 00 01 DC
+digi.xbee.sender - 2025-04-23 11:43:49,682 - DEBUG - XBeeSerialPort 'COM4' - SENT - OperatingMode.API_MODE: 7E 00 04 08 0A 41 4F 5D
+digi.xbee.reader - 2025-04-23 11:43:49,714 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 06 88 0A 41 4F 00 00 DD
+digi.xbee.reader - 2025-04-23 11:43:52,477 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 30 90 00 13 A2 00 42 01 09 19 FA E1 01 44 41 54 41 3A 54 45 4D 50 3A 32 35 2E 38 30 2C 48 55 4D 3A 33 35 2E 30 30 2C 50 50 4D 3A 33 38 39 2E 39 36 DE
+digi.xbee.reader - 2025-04-23 11:43:52,477 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - DATA: 0013A20042010919 - 44 41 54 41 3A 54 45 4D 50 3A 32 35 2E 38 30 2C 48 55 4D 3A 33 35 2E 30 30 2C 50 50 4D 3A 33 38 39 2E 39 36
+XBeeAPIReceiver - 2025-04-23 11:43:52,478 - INFO - Received data from 0013A20042010919: Temp=25.8°C, Humidity=35.0%, PPM=389.96
+digi.xbee.reader - 2025-04-23 11:43:53,834 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 30 90 00 13 A2 00 42 01 08 EB 06 84 01 44 41 54 41 3A 54 45 4D 50 3A 32 36 2E 32 30 2C 48 55 4D 3A 33 34 2E 33 30 2C 50 50 4D 3A 33 39 36 2E 36 39 63
+digi.xbee.reader - 2025-04-23 11:43:53,835 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - DATA: 0013A200420108EB - 44 41 54 41 3A 54 45 4D 50 3A 32 36 2E 32 30 2C 48 55 4D 3A 33 34 2E 33 30 2C 50 50 4D 3A 33 39 36 2E 36 39
+XBeeAPIReceiver - 2025-04-23 11:43:53,835 - INFO - Received data from 0013A200420108EB: Temp=26.2°C, Humidity=34.3%, PPM=396.69
+digi.xbee.reader - 2025-04-23 11:43:56,022 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 30 90 00 13 A2 00 42 01 09 19 FA E1 01 44 41 54 41 3A 54 45 4D 50 3A 32 35 2E 38 30 2C 48 55 4D 3A 33 35 2E 31 30 2C 50 50 4D 3A 33 39 31 2E 34 39 E6
+digi.xbee.reader - 2025-04-23 11:43:56,023 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - DATA: 0013A20042010919 - 44 41 54 41 3A 54 45 4D 50 3A 32 35 2E 38 30 2C 48 55 4D 3A 33 35 2E 31 30 2C 50 50 4D 3A 33 39 31 2E 34 39
+XBeeAPIReceiver - 2025-04-23 11:43:56,023 - INFO - Received data from 0013A20042010919: Temp=25.8°C, Humidity=35.1%, PPM=391.49
+digi.xbee.reader - 2025-04-23 11:43:59,425 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 30 90 00 13 A2 00 42 01 08 EB 06 84 01 44 41 54 41 3A 54 45 4D 50 3A 32 36 2E 32 30 2C 48 55 4D 3A 33 33 2E 36 30 2C 50 50 4D 3A 33 39 36 2E 35 39 62
+digi.xbee.reader - 2025-04-23 11:43:59,425 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - DATA: 0013A200420108EB - 44 41 54 41 3A 54 45 4D 50 3A 32 36 2E 32 30 2C 48 55 4D 3A 33 33 2E 36 30 2C 50 50 4D 3A 33 39 36 2E 35 39
+XBeeAPIReceiver - 2025-04-23 11:43:59,425 - INFO - Received data from 0013A200420108EB: Temp=26.2°C, Humidity=33.6%, PPM=396.59
+digi.xbee.reader - 2025-04-23 11:43:59,552 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - OperatingMode.API_MODE: 7E 00 30 90 00 13 A2 00 42 01 09 19 FA E1 01 44 41 54 41 3A 54 45 4D 50 3A 32 35 2E 38 30 2C 48 55 4D 3A 33 35 2E 31 30 2C 50 50 4D 3A 33 38 39 2E 32 33 E7
+digi.xbee.reader - 2025-04-23 11:43:59,553 - DEBUG - XBeeSerialPort 'COM4' - RECEIVED - DATA: 0013A20042010919 - 44 41 54 41 3A 54 45 4D 50 3A 32 35 2E 38 30 2C 48 55 4D 3A 33 35 2E 31 30 2C 50 50 4D 3A 33 38 39 2E 32 33
+XBeeAPIReceiver - 2025-04-23 11:43:59,553 - INFO - Received data from 0013A20042010919: Temp=25.8°C, Humidity=35.1%, PPM=389.23
+XBeeAPIReceiver - 2025-04-23 11:43:59,856 - INFO - Received data from 0013A200420108EB: Temp=26.2°C, Humidity=33.6%, PPM=396.59
+XBeeAPIReceiver - 2025-04-23 11:44:00,857 - INFO - Received data from 0013A20042010919: Temp=25.8°C, Humidity=35.1%, PPM=389.23
+digi.xbee.devices - 2025-04-23 11:44:02,975 - INFO - XBeeSerialPort 'COM4' closed

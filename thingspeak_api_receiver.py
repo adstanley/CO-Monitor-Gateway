@@ -1,7 +1,7 @@
 """
 XBee API Mode Receiver Script with ThingSpeak Integration
 """
-
+import sys
 import time
 import datetime
 import thingspeak
@@ -11,6 +11,7 @@ import json
 import threading
 import traceback
 import queue
+import config
 from digi.xbee.devices import XBeeDevice, XBeeMessage
 from digi.xbee.models.address import XBee64BitAddress, XBee16BitAddress
 from digi.xbee.exception import XBeeException, TimeoutException
@@ -174,17 +175,70 @@ class ThingSpeakClient:
                 #print(f"Rate limit: waiting {wait_time:.1f} seconds before sending")
                 time.sleep(wait_time)
             
-            # Prepare the data dictionary with field1, field2 and field3
+            
+            # Round values to 2 decimal places to avoid floating point precision issues
+            temp_rounded = round(temperature, 2)
+            humidity_rounded = round(humidity, 2)
+            ppm_rounded = round(ppm, 2)
+            tempF_rounded = round(temperatureF, 2)
+        
+            # Prepare the data dictionary with rounded values
             data = {
-                'field1': temperature,
-                'field2': humidity,
-                'field3': ppm,
-                'field4': temperatureF
+                'field1': temp_rounded,
+                'field2': humidity_rounded,
+                'field3': ppm_rounded,
+                'field4': tempF_rounded,
+                'field5': temp_rounded,
+                'field6': humidity_rounded,
+                'field7': ppm_rounded,
+                'field8': tempF_rounded
             }
+            
+            # Add random variation of 1-2% for fields 5-8
+            # import random
+            
+            # # Function to add variation of 1-2%
+            # def add_variation(value):
+            #     # Generate random percentage between 1-2%
+            #     variation_percent = random.uniform(0.005, 0.01)
+            #     # Randomly decide to add or subtract
+            #     if random.choice([True, False]):
+            #         return round(value * (1 + variation_percent), 2)
+            #     else:
+            #         return round(value * (1 - variation_percent), 2)
+            
+            # # Create varied values for fields 5-8
+            # temp_varied = add_variation(temp_rounded)
+            # humidity_varied = add_variation(humidity_rounded)
+            # ppm_varied = add_variation(ppm_rounded)
+            # tempF_varied = add_variation(tempF_rounded)
+            
+            # # Prepare the data dictionary with original and varied values
+            # data = {
+            #     'field1': temp_rounded,
+            #     'field2': humidity_rounded,
+            #     'field3': ppm_rounded,
+            #     'field4': tempF_rounded,
+            #     'field5': temp_varied,
+            #     'field6': humidity_varied,
+            #     'field7': ppm_varied,
+            #     'field8': tempF_varied
+            # }
+            
+             # Debug: Print the complete data dictionary
+            print("\n--- DEBUG: Data Dictionary ---")
+            for key, value in data.items():
+                print(f"{key}: {value}")
+            
+            # Debug: Print dictionary type and length
+            print(f"\nDictionary type: {type(data)}")
+            print(f"Dictionary length: {len(data)}")
+            print("--- END DEBUG ---\n")
             
             # Update the channel with our data
             response = self.channel.update(data)
             
+            # Check if the response is valid
             if response == 0:
                 stdout("Error sending data to ThingSpeak")
                 return None
@@ -243,20 +297,20 @@ class APIReceiver:
         """Open the connection to the XBee device"""
         try:
             self.device.open()
-            print("XBee device opened successfully\n")
+            stdout("XBee device opened successfully\n")
             
             info = self.device.get_node_id()
-            print(f"Device Info: {info}")
+            stdout(f"Device Info: {info}")
             addr = self.device.get_64bit_addr()
-            print(f"Device Address: {addr}")
+            stdout(f"Device Address: {addr}")
             protocol = self.device.get_protocol()
-            print(f"Device Protocol: {protocol}")
+            stdout(f"Device Protocol: {protocol}")
             mode = self.get_api_mode()
-            print(f"Device API Mode: {mode}\n")
+            stdout(f"Device API Mode: {mode}\n")
             
             # Configure the device to receive data
             self.device.add_data_received_callback(self._data_received_callback)
-            print("Data receiver callback registered\n")
+            stdout("Data receiver callback registered\n")
             
             return True
             
@@ -352,68 +406,7 @@ class APIReceiver:
             return f"{desc}, AO={ao_mode}"
             
         except Exception as e:
-            return f"Error checking API mode: {e}"
-           
-    # def get_api_mode(self) -> dict:
-    #     """
-    #     Prints and returns the current XBee API (AP) mode and API Output (AO) mode
-    #     with human-readable descriptions.
-    #     """
-
-    #     API_MODE_LOOKUP = {
-    #         0: "Transparent Mode [0]",
-    #         1: "API Mode Without Escapes [1]",
-    #         2: "API Mode With Escapes [2]",
-    #         3: "NA [3]",
-    #         4: "MicroPython REPL [4]"
-    #     }
-
-    #     AO_FLAGS = {
-    #         0: "Explicit RX Indicator (0x91) enabled",  # Bit 0
-    #         1: "Supported ZDO request pass-through",
-    #         2: "Unsupported ZDO request pass-through",
-    #         3: "Binding request pass-through",
-    #         4: "Echo received supported ZDO requests",
-    #         5: "Suppress all ZDO messages and disable pass-through"
-    #     }
-
-    #     def decode_ao_mode(value):
-    #         if value == 0:
-    #             return ["Use 0x90 RX packet (Legacy mode, no explicit addressing)"]
-    #         return [desc for bit, desc in AO_FLAGS.items() if value & (1 << bit)]
-
-    #     results = {
-    #         "api_mode_value": None,
-    #         "api_mode_desc": None,
-    #         "api_output_mode_value": None,
-    #         "api_output_mode_flags": []
-    #     }
-
-    #     try:
-    #         api_mode = self.device.get_parameter("AP")
-    #         api_mode = api_mode[0] if api_mode else 0
-    #         desc = API_MODE_LOOKUP.get(api_mode, f"Unknown Mode [{api_mode}]")
-    #         print(f"API Mode (AP): {api_mode} -> {desc}")
-    #         results["api_mode_value"] = api_mode
-    #         results["api_mode_desc"] = desc
-
-    #     except Exception as e:
-    #         print(f"Error checking API mode (AP): {e}")
-
-    #     try:
-    #         ao_mode = self.device.get_parameter("AO")
-    #         ao_mode = ao_mode[0] if ao_mode else 0
-    #         decoded = decode_ao_mode(ao_mode)
-    #         print(f"API Output Mode (AO): {ao_mode}")
-    #         for flag in decoded:
-    #             print(f"  - {flag}")
-    #         results["api_output_mode_value"] = ao_mode
-    #         results["api_output_mode_flags"] = decoded
-
-    #     except Exception as e:
-    #         print(f"Error checking API output mode (AO): {e}")
-
-    #     return results           
+            return f"Error checking API mode: {e}"        
             
     def get_16bit_address(self) -> str:
         """Get the 16-bit address of the XBee device"""
@@ -683,7 +676,8 @@ class APIReceiver:
         Args:
             check_interval: Time between checks in seconds
         """
-        print("Starting continuous API mode data reception...")
+        
+        #print("Starting continuous API mode data reception...")
         
         # Make sure the device is open
         if not self.is_open:
@@ -721,7 +715,7 @@ class APIReceiver:
         
         try:
             with self.print_lock:
-                print("[THREAD] Starting ThingSpeak data processing thread")
+                stdout("[THREAD] Starting ThingSpeak data processing thread")
             
             while True:
                 # # Add debug printing to show current queue size
@@ -836,7 +830,7 @@ class APIReceiver:
             print(f"Error sending data: {e}")
             return False
     
-def get_api_key():
+def get_api_key_old():
     # Import ThingSpeak settings from config.py
     # If config.py is not found, prompt for input
     try:
@@ -853,7 +847,6 @@ def get_api_key():
         print("WRITE_API_KEY = 'your_api_key'")
         
         # Exit the program or prompt for values
-        import sys
         choice = input("Would you like to continue by entering values now? (y/n): ")
         if choice.lower() != 'y':
             print(f"❌ Configuration not provided. Exiting program.")
@@ -863,10 +856,77 @@ def get_api_key():
         CHANNEL_ID = int(input("Enter your ThingSpeak Channel ID: "))
         WRITE_API_KEY = input("Enter your ThingSpeak Write API Key: ")
         print(f"✅ Configuration provided successfully!")
+
+def get_api_key():
+    global CHANNEL_ID, WRITE_API_KEY  # Declare that we're using the global variables
     
-def main():
-    print("XBee API Mode Receiver with ThingSpeak Integration")
-    print(f"Device Located at serial port {PORT} at {BAUD_RATE} baud...\n") 
+    try:
+        # Import from config.py
+        CHANNEL_ID = config.CHANNEL_ID
+        WRITE_API_KEY = config.WRITE_API_KEY
+        
+        stdout(f"✅ config.py found!")
+        stdout(f"✅ ThingSpeak settings imported successfully!\n")
+        stdout(f"✅ Channel ID: {CHANNEL_ID}")
+        stdout(f"✅ API Key: {WRITE_API_KEY[:6]}{'*' * (len(WRITE_API_KEY) - 6)}\n")
+        
+    except ImportError:
+        # Prompt for input
+        print(f"❌ Warning: config.py not found!")
+        print(f"❌ Please create a config.py file with the following content:")
+        print("CHANNEL_ID = your_channel_id")
+        print("WRITE_API_KEY = 'your_api_key'")
+        
+        choice = input("Would you like to continue by entering values now? (y/n): ")
+        if choice.lower() != 'y':
+            print(f"❌ Configuration not provided. Exiting program.")
+            sys.exit(1)
+        
+        # Set global variables directly
+        CHANNEL_ID = int(input("Enter your ThingSpeak Channel ID: "))
+        WRITE_API_KEY = input("Enter your ThingSpeak Write API Key: ")
+        print(f"✅ Configuration provided successfully!")
+    
+    
+def print_ascii_header():
+    """Print a CO2 Monitor ASCII art header with a blue border."""
+    # ANSI color codes
+    BLUE = "\033[94m"    # Blue text
+    RESET = "\033[0m"    # Reset color
+    
+    # Calculate width based on the ASCII art
+    art_width = 50  # Width of your ASCII art
+    border_width = art_width + 6  # Add some padding
+    
+    # Create horizontal border line
+    h_border = f"{BLUE}+" + "-" * (border_width - 2) + f"+{RESET}"
+    
+    # Core ASCII art with proper escaping
+    ascii_art = [
+        "  _________    __  ___          _ __          ",
+        " / ___/ __ \\  /  |/  /__  ___  (_) /____  ____",
+        "/ /__/ /_/ / / /|_/ / _ \\/ _ \\/ / __/ _ \\/ __/",
+        "\\___/\\____/ /_/  /_/\\___/_//_/_/\\__/\\___/_/   "
+    ]
+    
+    # Print top border
+    print()
+    print(h_border)
+    
+    # Print each line of ASCII art with vertical borders
+    for line in ascii_art:
+        padding = " " * ((border_width - 2 - len(line)) // 2)
+        print(f"{BLUE}|{RESET}{padding}{line}{padding}{BLUE}|{RESET}")
+    
+    # Print a blank line for spacing
+    print(f"{BLUE}|{RESET}" + " " * (border_width - 2) + f"{BLUE}|{RESET}")
+    
+    # Print bottom border
+    print(h_border)
+            
+def main():   
+    
+
     
     # Import ThingSpeak settings from config.py
     get_api_key()
@@ -879,10 +939,13 @@ def main():
         thingspeak_api_key=WRITE_API_KEY
     )    
     
+    # print("XBee API Mode Receiver with ThingSpeak Integration")
+    stdout(f"Device Located at serial port {PORT} at {BAUD_RATE} baud...\n") 
+    
     try:
         thingspeak_thread = threading.Thread(target=receiver.process_thingspeak_data, daemon=True)
         
-        print("Start thread for processing ThingSpeak data...")
+        stdout("Start thread for processing ThingSpeak data...")
         thingspeak_thread.start()       
         
         receiver.continuous_monitoring()
@@ -903,4 +966,5 @@ def main():
             receiver.close()
         
 if __name__ == '__main__':
+    print_ascii_header()
     main()
