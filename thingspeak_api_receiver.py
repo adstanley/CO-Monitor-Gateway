@@ -470,8 +470,8 @@ class APIReceiver:
             # print(f"DEBUG: Raw data payload: {data_payload}")
             
             with self.print_lock:
-                stdout(f"[{timestamp}] Received XBee message from Address: {sender}")
-                stdout(f"[{timestamp}] Data payload: {data_payload.decode('utf-8')}")
+                stdout(f"Received XBee message from Address: {sender}")
+                stdout(f"Data payload: {data_payload.decode('utf-8')}")
             
             # Parse the data - the parse_data function now handles bytearrays
             result = self.parse_data(data_payload)
@@ -497,10 +497,10 @@ class APIReceiver:
                 self.logger.info(f"Received data from {sender}: Temp={temperature}°C, Humidity={humidity}%, PPM={ppm}")
                 
                 with self.print_lock:
-                    stdout(f"[{timestamp}] Temperature (C): {temperature}°C")
-                    stdout(f"[{timestamp}] Temperature (F): {temperatureF}°F")
-                    stdout(f"[{timestamp}] Humidity: {humidity}%")
-                    stdout(f"[{timestamp}] CO2 PPM: {ppm} ppm\n")
+                    stdout(f"Temperature (C): {temperature}°C")
+                    stdout(f"Temperature (F): {temperatureF}°F")
+                    stdout(f"Humidity: {humidity}%")
+                    stdout(f"CO2 PPM: {ppm} ppm\n")
             else:
                 print(f"Failed to parse data string: {data_payload}")
                 self.logger.warning(f"Failed to parse data string: {data_payload}")
@@ -583,11 +583,11 @@ class APIReceiver:
                 self.logger.info(f"Received data from {sender}: Temp={temperature}°C, Humidity={humidity}%, PPM={ppm}")
                 
                 with self.print_lock:
-                    stdout(f"[{timestamp}] Node: {sender}")
-                    stdout(f"[{timestamp}] Temperature (C): {temperature}°C")
-                    stdout(f"[{timestamp}] Temperature (F): {temperatureF}°F")
-                    stdout(f"[{timestamp}] Humidity: {humidity}%")
-                    stdout(f"[{timestamp}] CO2 PPM: {ppm} ppm\n")
+                    stdout(f"Node: {sender}")
+                    stdout(f"Temperature (C): {temperature}°C")
+                    stdout(f"Temperature (F): {temperatureF}°F")
+                    stdout(f"Humidity: {humidity}%")
+                    stdout(f"CO2 PPM: {ppm} ppm\n")
             else:
                 print(f"Failed to parse data string from {sender}: {data_payload}")
                 self.logger.warning(f"Failed to parse data string from {sender}: {data_payload}")
