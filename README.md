@@ -55,7 +55,7 @@ The receiver will:
 
 Here is an example of the live console output during operation:
 
-![Console Output](images/console-output.png)
+![Console Output](images/console-output-banner.png)
 
 ## Data Format
 
